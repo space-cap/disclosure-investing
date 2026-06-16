@@ -18,7 +18,30 @@ uv run pytest
 ```powershell
 uv run disclosure-investing fetch-disclosures
 uv run disclosure-investing classify-rules
+uv run disclosure-investing fetch-documents --limit 10
+uv run disclosure-investing classify-ai --limit 10
 uv run streamlit run app/streamlit_app.py
+```
+
+전체 일일 흐름은 한 번에 실행할 수 있습니다.
+
+```powershell
+uv run disclosure-investing run-daily --document-limit 20 --ai-limit 10
+```
+
+매일 자동 실행하려면 PowerShell 스크립트를 사용합니다.
+
+```powershell
+.\scripts\run_daily.ps1
+```
+
+Windows 작업 스케줄러 등록 방법은 [docs/09-automation.md](./docs/09-automation.md)에 정리되어 있습니다.
+
+원문/지표를 반영해 기존 AI 결과를 다시 만들고 싶으면 `--force` 또는 `--force-ai`를 사용합니다.
+
+```powershell
+uv run disclosure-investing classify-ai --limit 20 --force
+uv run disclosure-investing run-daily --document-limit 20 --ai-limit 20 --force-ai
 ```
 
 ## Documents
