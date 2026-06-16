@@ -1,9 +1,48 @@
+# Environment and local secrets
 .env
-.venv/
+.env.*
+!.env.example
+
+# Python
 __pycache__/
+*.py[cod]
+*$py.class
+.python-version
+.venv/
+venv/
+env/
+ENV/
+
+# Test and tooling caches
 .pytest_cache/
-*.pyc
+.coverage
+htmlcov/
+.mypy_cache/
+.ruff_cache/
+.tox/
+.nox/
+.uv-cache/
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
+
+# Streamlit local state
+.streamlit/secrets.toml
+
+# Local database and runtime files
 data/*.db
+data/*.sqlite
+data/*.sqlite3
 data/*.db-shm
 data/*.db-wal
+data/*.sqlite-shm
+data/*.sqlite-wal
+data/*.sqlite3-shm
+data/*.sqlite3-wal
+data/run_daily.lock
+logs/
 
+# Generated reports
+reports/daily-*.md
